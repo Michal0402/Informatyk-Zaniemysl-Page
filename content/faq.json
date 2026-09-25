@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "koszt",
+      "question": "Ile kosztuje naprawa?",
+      "answer": "Koszt zależy od modelu sprzętu, rodzaju usterki i dostępności części. Po diagnostyce przedstawiamy wycenę i dopiero wtedy decydujesz o naprawie. Nie podajemy stałej ceny „w ciemno” bez sprawdzenia urządzenia."
+    },
+    {
+      "id": "czas",
+      "question": "Jak długo trwa naprawa?",
+      "answer": "Proste naprawy mogą trwać krócej, a te wymagające zamówienia części — dłużej. Po diagnozie informujemy o przewidywanym czasie. Dokładny termin zależy od dostępności części i kolejki zleceń."
+    },
+    {
+      "id": "bateria",
+      "question": "Czy wymieniacie baterie w telefonach?",
+      "answer": "Tak — wymieniamy baterie w popularnych modelach, gdy części są dostępne. Po sprawdzeniu telefonu potwierdzamy, czy wymiana jest możliwa i jaki będzie koszt."
+    },
+    {
+      "id": "iphone",
+      "question": "Naprawiacie iPhone’y?",
+      "answer": "Tak, zajmujemy się popularnymi modelami iPhone. Zakres naprawy (np. ekran, bateria, złącze) zależy od modelu i dostępności części — szczegóły ustalimy po diagnostyce."
+    },
+    {
+      "id": "android",
+      "question": "A telefony z Androidem?",
+      "answer": "Naprawiamy popularne modele z Androidem. Nie każdy model da się naprawić w każdej usterce — po sprawdzeniu mówimy wprost, co jest możliwe."
+    },
+    {
+      "id": "laptopy",
+      "question": "Co obejmuje serwis laptopów?",
+      "answer": "M.in. diagnostykę problemów z uruchamianiem, przegrzewaniem, brakiem obrazu, czyszczenie chłodzenia, wymianę pasty, modernizację SSD/RAM oraz instalację systemu Windows."
+    },
+    {
+      "id": "dane",
+      "question": "Czy da się odzyskać dane z uszkodzonego dysku?",
+      "answer": "Zależy od stanu nośnika. Najpierw oceniamy dysk i informujemy o szansach oraz koszcie. Nie gwarantujemy odzyskania danych w każdym przypadku."
+    },
+    {
+      "id": "przekazanie",
+      "question": "Jak przekazać sprzęt do naprawy?",
+      "answer": "Skontaktuj się telefonicznie lub mailowo — ustalimy dogodny sposób przekazania urządzenia w Zaniemyślu i okolicach. Przed oddaniem sprzętu warto wykonać kopię ważnych danych, jeśli to możliwe."
+    }
+  ]
+}

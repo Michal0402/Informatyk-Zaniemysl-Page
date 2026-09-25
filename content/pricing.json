@@ -1,0 +1,53 @@
+{
+  "intro": "Poniższe pozycje mają charakter orientacyjny. Ostateczny koszt zależy od modelu sprzętu, dostępności części i zakresu prac — podajemy go po diagnozie.",
+  "items": [
+    {
+      "id": "diagnoza-pc",
+      "name": "Diagnostyka komputera / laptopa",
+      "price": "Wycena po diagnozie"
+    },
+    {
+      "id": "diagnoza-phone",
+      "name": "Diagnostyka telefonu",
+      "price": "Wycena po diagnozie"
+    },
+    {
+      "id": "czyszczenie",
+      "name": "Czyszczenie i wymiana pasty termicznej",
+      "price": "Wycena po diagnozie"
+    },
+    {
+      "id": "ssd-ram",
+      "name": "Modernizacja (SSD / RAM)",
+      "price": "Wycena po diagnozie",
+      "note": "Cena części + robocizna"
+    },
+    {
+      "id": "windows",
+      "name": "Instalacja systemu Windows",
+      "price": "Wycena po diagnozie"
+    },
+    {
+      "id": "ekran-phone",
+      "name": "Wymiana wyświetlacza telefonu",
+      "price": "Wycena po diagnozie",
+      "note": "Zależnie od modelu i dostępności części"
+    },
+    {
+      "id": "bateria",
+      "name": "Wymiana baterii telefonu",
+      "price": "Wycena po diagnozie"
+    },
+    {
+      "id": "ladowanie",
+      "name": "Naprawa złącza ładowania",
+      "price": "Wycena po diagnozie"
+    },
+    {
+      "id": "dane",
+      "name": "Odzyskiwanie danych",
+      "price": "Wycena po diagnozie",
+      "note": "Ocena możliwości przed rozpoczęciem prac"
+    }
+  ]
+}

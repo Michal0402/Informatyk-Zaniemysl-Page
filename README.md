@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Serwis Zaniemyśl
 
-## Getting Started
+Strona serwisu komputerów i telefonów w Zaniemyślu.
+Next.js · TypeScript · Tailwind CSS · panel admina zapisujący JSON.
 
-First, run the development server:
+## Start
 
 ```bash
+cp .env.example .env.local   # ustaw ADMIN_PASSWORD
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Strona: http://localhost:3000  
+Panel: http://localhost:3000/admin
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Produkcja
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Panel zapisuje pliki, więc hosting musi uruchamiać Node (`next start`), nie sam katalog statyczny.
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Panel admina (`/admin`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Chroniony hasłem z `ADMIN_PASSWORD` (min. 8 znaków) w `.env.local`
+- Sesja w cookie HttpOnly (12 h)
+- Zapis do plików w `content/`
+- Nie indeksowany (`robots`, `noindex`)
+- Nie linkowany ze strony publicznej
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edytowalne sekcje: firma, cennik, FAQ, realizacje.
 
-## Deploy on Vercel
+## Treść w plikach
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Treść | Plik |
+| --- | --- |
+| Firma | `content/company.json` |
+| Cennik | `content/pricing.json` |
+| FAQ | `content/faq.json` |
+| Realizacje | `content/realizations.json` |
+| Usługi (stałe) | `src/data/services.ts` |
+| Usterki | `src/data/issues.ts` |
+| Proces | `src/data/process.ts` |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Zdjęcia
+
+- `public/images/hero.jpg`
+- `public/images/realizations/` + wpisy w panelu / `content/realizations.json`
+
+## Skrypty
+
+- `npm run dev` — lokalny podgląd
+- `npm run build` — build produkcyjny
+- `npm start` — serwer Node (wymagany do panelu)
+- `npm run lint` / `npm run typecheck`
