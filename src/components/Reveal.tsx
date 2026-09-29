@@ -15,24 +15,41 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
     const el = ref.current;
     if (!el) return;
 
+    const show = () => el.classList.add("is-visible");
+
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      el.classList.add("is-visible");
+      show();
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+    if (inView) {
+      show();
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          el.classList.add("is-visible");
+          show();
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.05, rootMargin: "0px 0px -8% 0px" },
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Awaryjnie pokaż treść, jeśli observer nie zadziała
+    const fallback = window.setTimeout(show, 1200);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (

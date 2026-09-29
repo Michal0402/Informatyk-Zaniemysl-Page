@@ -56,18 +56,31 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>{contact.name}</li>
             <li>{contact.area}</li>
-            {contact.hasPhone && contact.telHref ? (
+            {contact.phonePc ? (
               <li>
+                <span className="block text-xs text-muted/80">Komputery</span>
                 <a
-                  href={contact.telHref}
+                  href={contact.phonePc.href}
                   className="transition-colors hover:text-accent"
                 >
-                  {contact.phoneLabel}
+                  {contact.phonePc.display}
                 </a>
               </li>
-            ) : (
+            ) : null}
+            {contact.phoneGsm ? (
+              <li>
+                <span className="block text-xs text-muted/80">GSM</span>
+                <a
+                  href={contact.phoneGsm.href}
+                  className="transition-colors hover:text-accent"
+                >
+                  {contact.phoneGsm.display}
+                </a>
+              </li>
+            ) : null}
+            {!contact.hasPhone ? (
               <li className="text-muted/70">Telefon: do uzupełnienia</li>
-            )}
+            ) : null}
             {contact.hasEmail && contact.mailtoHref ? (
               <li>
                 <a

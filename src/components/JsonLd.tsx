@@ -1,16 +1,22 @@
 import { getCompany } from "@/lib/content";
 import {
-  getPhoneLabel,
+  getPhoneGsmLabel,
+  getPhonePcLabel,
   getSiteUrl,
   hasAddress,
   hasEmail,
   hasHours,
-  hasPhone,
+  hasPhoneGsm,
+  hasPhonePc,
 } from "@/lib/companyHelpers";
 
 export function JsonLd() {
   const company = getCompany();
   const siteUrl = getSiteUrl(company);
+
+  const phones: string[] = [];
+  if (hasPhonePc(company)) phones.push(getPhonePcLabel(company));
+  if (hasPhoneGsm(company)) phones.push(getPhoneGsmLabel(company));
 
   const localBusiness: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -21,9 +27,12 @@ export function JsonLd() {
     url: siteUrl ?? undefined,
   };
 
-  if (hasPhone(company)) {
-    localBusiness.telephone = getPhoneLabel(company);
+  if (phones.length === 1) {
+    localBusiness.telephone = phones[0];
+  } else if (phones.length > 1) {
+    localBusiness.telephone = phones;
   }
+
   if (hasEmail(company)) {
     localBusiness.email = company.email;
   }

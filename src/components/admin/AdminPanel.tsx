@@ -14,8 +14,10 @@ const emptyContent = (): SiteContent => ({
   company: {
     name: "",
     brand: "",
-    phone: "",
-    phoneDisplay: "",
+    phonePc: "",
+    phonePcDisplay: "",
+    phoneGsm: "",
+    phoneGsmDisplay: "",
     email: "",
     address: "",
     hours: "",
@@ -299,22 +301,48 @@ export function AdminPanel() {
               }
             />
             <Field
-              label="Telefon (do tel:)"
-              value={content.company.phone}
-              onChange={(phone) =>
-                setContent((c) => ({ ...c, company: { ...c.company, phone } }))
-              }
-              hint='Np. "+48 123 456 789". Puste = bez linku tel:'
-            />
-            <Field
-              label="Telefon wyświetlany"
-              value={content.company.phoneDisplay}
-              onChange={(phoneDisplay) =>
+              label="Telefon — serwis komputerowy"
+              value={content.company.phonePc}
+              onChange={(phonePc) =>
                 setContent((c) => ({
                   ...c,
-                  company: { ...c.company, phoneDisplay },
+                  company: { ...c.company, phonePc },
                 }))
               }
+              hint='Np. "788369543". Puste = bez linku tel:'
+            />
+            <Field
+              label="Telefon PC — wyświetlany"
+              value={content.company.phonePcDisplay}
+              onChange={(phonePcDisplay) =>
+                setContent((c) => ({
+                  ...c,
+                  company: { ...c.company, phonePcDisplay },
+                }))
+              }
+              hint='Np. "788 369 543"'
+            />
+            <Field
+              label="Telefon — serwis GSM"
+              value={content.company.phoneGsm}
+              onChange={(phoneGsm) =>
+                setContent((c) => ({
+                  ...c,
+                  company: { ...c.company, phoneGsm },
+                }))
+              }
+              hint='Np. "518518671"'
+            />
+            <Field
+              label="Telefon GSM — wyświetlany"
+              value={content.company.phoneGsmDisplay}
+              onChange={(phoneGsmDisplay) =>
+                setContent((c) => ({
+                  ...c,
+                  company: { ...c.company, phoneGsmDisplay },
+                }))
+              }
+              hint='Np. "518 518 671"'
             />
             <Field
               label="E-mail"

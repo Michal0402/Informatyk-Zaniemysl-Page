@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Clock, Laptop, Smartphone } from "lucide-react";
 import { CallButton } from "@/components/CallButton";
 import { Reveal } from "@/components/Reveal";
 import { useSiteContact } from "@/components/ContactProvider";
@@ -24,15 +24,38 @@ export function Contact() {
                 Napisz lub zadzwoń — ustalimy diagnostykę i kolejne kroki.
               </p>
 
-              <div className="mt-8">
-                <CallButton
-                  variant="large"
-                  label={
-                    contact.hasPhone
-                      ? `Zadzwoń: ${contact.phoneLabel}`
-                      : "Zadzwoń"
-                  }
-                />
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {contact.phonePc ? (
+                  <a
+                    href={contact.phonePc.href}
+                    className="btn btn-primary min-h-14 px-6 text-base"
+                    aria-label={`Serwis komputerowy: ${contact.phonePc.display}`}
+                  >
+                    <Laptop className="size-5 shrink-0" aria-hidden />
+                    <span className="flex flex-col items-start gap-0.5 text-left leading-tight">
+                      <span className="text-xs font-medium opacity-80">
+                        Serwis komputerowy
+                      </span>
+                      <span>{contact.phonePc.display}</span>
+                    </span>
+                  </a>
+                ) : null}
+                {contact.phoneGsm ? (
+                  <a
+                    href={contact.phoneGsm.href}
+                    className="btn btn-primary min-h-14 px-6 text-base"
+                    aria-label={`Serwis GSM: ${contact.phoneGsm.display}`}
+                  >
+                    <Smartphone className="size-5 shrink-0" aria-hidden />
+                    <span className="flex flex-col items-start gap-0.5 text-left leading-tight">
+                      <span className="text-xs font-medium opacity-80">
+                        Serwis GSM
+                      </span>
+                      <span>{contact.phoneGsm.display}</span>
+                    </span>
+                  </a>
+                ) : null}
+                {!contact.hasPhone ? <CallButton variant="large" /> : null}
               </div>
 
               <ul className="mt-8 space-y-4 text-sm md:text-base">
@@ -82,18 +105,11 @@ export function Contact() {
                 ) : null}
               </ul>
 
-              {!contact.hasPhone || !contact.hasEmail ? (
+              {!contact.hasEmail ? (
                 <p className="mt-8 rounded-xl border border-border bg-bg-elevated px-4 py-3 text-xs text-muted">
-                  Przed publikacją uzupełnij dane w{" "}
-                  <code className="text-accent/90">content/company.json</code>
-                  {" ("}
-                  {[
-                    !contact.hasPhone ? "telefon" : null,
-                    !contact.hasEmail ? "e-mail" : null,
-                  ]
-                    .filter(Boolean)
-                    .join(", ")}
-                  ).
+                  E-mail możesz uzupełnić w{" "}
+                  <code className="text-accent/90">content/company.json</code>{" "}
+                  lub w panelu /admin.
                 </p>
               ) : null}
             </div>

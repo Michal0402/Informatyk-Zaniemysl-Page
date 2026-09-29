@@ -44,10 +44,10 @@ export function Hero() {
           <div className="overflow-hidden rounded-[1.5rem] border border-border shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
             <ImageSlot
               src={heroImage}
-              alt="Miejsce na zdjęcie naprawy laptopa i telefonu"
+              alt="Komputer stacjonarny i telefon w uchwycie serwisowym"
               label="Zdjęcie hero — laptop i telefon"
               aspect="aspect-[5/4] sm:aspect-[4/3] lg:aspect-[5/4]"
-              className="min-h-[240px] sm:min-h-[280px]"
+              className="min-h-[240px] sm:min-h-[280px] object-cover"
             />
           </div>
         </Reveal>

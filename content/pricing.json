@@ -1,53 +1,52 @@
 {
-  "intro": "Poniższe pozycje mają charakter orientacyjny. Ostateczny koszt zależy od modelu sprzętu, dostępności części i zakresu prac — podajemy go po diagnozie.",
+  "intro": "Poniższe pozycje mają charakter orientacyjny. Ostateczny koszt zależy od modelu sprzętu, dostępności części i zakresu prac — szczegóły potwierdzamy po diagnozie.",
   "items": [
     {
       "id": "diagnoza-pc",
-      "name": "Diagnostyka komputera / laptopa",
-      "price": "Wycena po diagnozie"
-    },
-    {
-      "id": "diagnoza-phone",
-      "name": "Diagnostyka telefonu",
-      "price": "Wycena po diagnozie"
-    },
-    {
-      "id": "czyszczenie",
-      "name": "Czyszczenie i wymiana pasty termicznej",
-      "price": "Wycena po diagnozie"
+      "name": "Diagnostyka PC / laptopa",
+      "price": "70 zł"
     },
     {
       "id": "ssd-ram",
-      "name": "Modernizacja (SSD / RAM)",
-      "price": "Wycena po diagnozie",
-      "note": "Cena części + robocizna"
+      "name": "SSD / RAM",
+      "price": "od 80 zł",
+      "note": "Cena części osobno"
     },
     {
       "id": "windows",
-      "name": "Instalacja systemu Windows",
-      "price": "Wycena po diagnozie"
+      "name": "Instalacja Windows",
+      "price": "150 zł"
     },
     {
-      "id": "ekran-phone",
-      "name": "Wymiana wyświetlacza telefonu",
-      "price": "Wycena po diagnozie",
-      "note": "Zależnie od modelu i dostępności części"
-    },
-    {
-      "id": "bateria",
-      "name": "Wymiana baterii telefonu",
-      "price": "Wycena po diagnozie"
-    },
-    {
-      "id": "ladowanie",
-      "name": "Naprawa złącza ładowania",
-      "price": "Wycena po diagnozie"
+      "id": "czyszczenie",
+      "name": "Czyszczenie laptopa",
+      "price": "od 150 zł"
     },
     {
       "id": "dane",
       "name": "Odzyskiwanie danych",
-      "price": "Wycena po diagnozie",
+      "price": "od 150 zł",
       "note": "Ocena możliwości przed rozpoczęciem prac"
+    },
+    {
+      "id": "ekran",
+      "name": "Wymiana wyświetlacza",
+      "price": "od 150 zł + część"
+    },
+    {
+      "id": "bateria",
+      "name": "Wymiana baterii",
+      "price": "od 120 zł + część"
+    },
+    {
+      "id": "port-audio",
+      "name": "Port ładowania / głośnik / mikrofon",
+      "price": "od 150 zł"
+    },
+    {
+      "id": "zalanie",
+      "name": "Diagnostyka po zalaniu",
+      "price": "100 zł"
     }
   ]
 }

@@ -1,20 +1,56 @@
 import type { CompanyConfig } from "@/lib/contentTypes";
 
-export function hasPhone(company: CompanyConfig): boolean {
-  return company.phone.trim().length > 0;
+function toTelHref(raw: string): string | null {
+  const digits = raw.replace(/[^\d+]/g, "");
+  if (!digits) return null;
+  return `tel:${digits}`;
 }
 
+function displayOrRaw(display: string, raw: string): string {
+  const d = display.trim();
+  if (d) return d;
+  return raw.trim();
+}
+
+export function hasPhonePc(company: CompanyConfig): boolean {
+  return company.phonePc.trim().length > 0;
+}
+
+export function hasPhoneGsm(company: CompanyConfig): boolean {
+  return company.phoneGsm.trim().length > 0;
+}
+
+export function hasPhone(company: CompanyConfig): boolean {
+  return hasPhonePc(company) || hasPhoneGsm(company);
+}
+
+export function getPhonePcLabel(company: CompanyConfig): string {
+  return displayOrRaw(company.phonePcDisplay, company.phonePc);
+}
+
+export function getPhoneGsmLabel(company: CompanyConfig): string {
+  return displayOrRaw(company.phoneGsmDisplay, company.phoneGsm);
+}
+
+export function getPhonePcHref(company: CompanyConfig): string | null {
+  if (!hasPhonePc(company)) return null;
+  return toTelHref(company.phonePc);
+}
+
+export function getPhoneGsmHref(company: CompanyConfig): string | null {
+  if (!hasPhoneGsm(company)) return null;
+  return toTelHref(company.phoneGsm);
+}
+
+/** Pierwszy dostępny numer (PC, potem GSM) — do prostych CTA */
 export function getPhoneLabel(company: CompanyConfig): string {
-  const display = company.phoneDisplay.trim();
-  if (display) return display;
-  return company.phone.trim();
+  if (hasPhonePc(company)) return getPhonePcLabel(company);
+  if (hasPhoneGsm(company)) return getPhoneGsmLabel(company);
+  return "";
 }
 
 export function getTelHref(company: CompanyConfig): string | null {
-  if (!hasPhone(company)) return null;
-  const digits = company.phone.replace(/[^\d+]/g, "");
-  if (!digits) return null;
-  return `tel:${digits}`;
+  return getPhonePcHref(company) ?? getPhoneGsmHref(company);
 }
 
 export function hasEmail(company: CompanyConfig): boolean {

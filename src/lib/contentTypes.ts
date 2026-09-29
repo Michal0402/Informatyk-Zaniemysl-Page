@@ -1,8 +1,12 @@
 export type CompanyConfig = {
   name: string;
   brand: string;
-  phone: string;
-  phoneDisplay: string;
+  /** Numer serwisu komputerowego */
+  phonePc: string;
+  phonePcDisplay: string;
+  /** Numer serwisu GSM */
+  phoneGsm: string;
+  phoneGsmDisplay: string;
   email: string;
   address: string;
   hours: string;

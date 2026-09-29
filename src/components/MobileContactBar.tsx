@@ -39,7 +39,12 @@ export function MobileContactBar() {
       <ul className="grid h-[var(--mobile-bar-h)] grid-cols-3">
         {items.map((item) => {
           const Icon = item.icon;
-          const useTel = item.preferTel && contact.hasPhone && contact.telHref;
+          // Przy dwóch numerach prowadzimy do sekcji kontaktu
+          const useTel =
+            item.preferTel &&
+            contact.hasPhone &&
+            !contact.hasBothPhones &&
+            contact.telHref;
           const href = useTel ? contact.telHref! : item.href;
 
           return (

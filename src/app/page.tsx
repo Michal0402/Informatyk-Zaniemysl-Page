@@ -13,8 +13,8 @@ import { Footer } from "@/components/Footer";
 import { MobileContactBar } from "@/components/MobileContactBar";
 import {
   ContactProvider,
-  companyToContact,
 } from "@/components/ContactProvider";
+import { companyToContact } from "@/lib/siteContact";
 import { getCompany, getFaq } from "@/lib/content";
 
 export const dynamic = "force-dynamic";

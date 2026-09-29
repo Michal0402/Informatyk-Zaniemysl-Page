@@ -1,8 +1,10 @@
 {
   "name": "Serwis Zaniemyśl",
   "brand": "SERWIS ZANIEMYŚL",
-  "phone": "",
-  "phoneDisplay": "",
+  "phonePc": "788369543",
+  "phonePcDisplay": "788 369 543",
+  "phoneGsm": "518518671",
+  "phoneGsmDisplay": "518 518 671",
   "email": "",
   "address": "",
   "hours": "",
